@@ -67,7 +67,7 @@ namespace MPCobro.desktop
             if (local !=  null)
             {
                 LocalesBLL.Instance.Insert(local);
-                pbxCodigo.Image.Save(@"C:\MPCobro\MPCobro.desktop\CodigosBarras\" + txtCodigo.Text + ".png");
+                pbxCodigo.Image.Save(@"C:\MPCobroNew\MPCobro.desktop\CodigosBarras\" + txtCodigo.Text + ".png");
 
                 MessageBox.Show("Datos guardados exitosamente...",
                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
