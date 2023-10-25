@@ -55,11 +55,9 @@ namespace MPCobro.desktop
 
         private void dgvArrendatario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
              if (dgvArrendatario.Rows[e.RowIndex].Cells["Eliminar"].Selected)
             {
                 int id = (int)dgvArrendatario.Rows[e.RowIndex].Cells["Id"].Value;
-
                 DialogResult dr = MessageBox.Show("Realmente desea eliminar el registro?",
                     "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
@@ -69,7 +67,6 @@ namespace MPCobro.desktop
                         MessageBox.Show("Se elimino el registro seleccionado?",
                     "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
                 }
                 UpdateGrid();
             }

@@ -72,6 +72,7 @@ namespace MPCobro.desktop
                 MessageBox.Show("Datos guardados exitosamente...",
                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UpdateGrid();
+                LimpiarForm();
             }
             else
             {
@@ -82,7 +83,9 @@ namespace MPCobro.desktop
         }
         private void LimpiarForm()
         {
-           
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            pbxCodigo.Image = null;
         }
         private void UpdateGrid()
         {
@@ -180,7 +183,6 @@ namespace MPCobro.desktop
 
             StringFormat drawFormat = new StringFormat();
             objGraphics.Clear(color);
-
             drawFormat.Alignment = StringAlignment.Center;
             objGraphics.DrawString(texto, objFont, new SolidBrush(Color.Black), new RectangleF(0, (objBitmap.Height / 2) - (objBitmap.Height - 10), objBitmap.Width, objBitmap.Height), drawFormat);
             objGraphics.Flush();
