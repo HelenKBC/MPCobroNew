@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81AC490E-A52F-452A-8080-AB09900E93CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MPCobro.desktop</RootNamespace>
+    <AssemblyName>MPCobro.desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrendatarioWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArrendatarioWF.Designer.cs">
+      <DependentUpon>ArrendatarioWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriaWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriaWF.Designer.cs">
+      <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EdificioWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdificioWF.Designer.cs">
+      <DependentUpon>EdificioWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadoWF.Designer.cs">
+      <DependentUpon>EmpleadoWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadoWF.Designer.cs">
+      <DependentUpon>EstadoWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalesWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalesWF.Designer.cs">
+      <DependentUpon>LocalesWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuWF.Designer.cs">
+      <DependentUpon>MenuWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoEstadoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoEstadoWF.Designer.cs">
+      <DependentUpon>NuevoEstadoWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoRolWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoRolWF.Designer.cs">
+      <DependentUpon>NuevoRolWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioWF.Designer.cs">
+      <DependentUpon>UsuarioWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WFRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WFRol.Designer.cs">
+      <DependentUpon>WFRol.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ArrendatarioWF.resx">
+      <DependentUpon>ArrendatarioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoriaWF.resx">
+      <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EdificioWF.resx">
+      <DependentUpon>EdificioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadoWF.resx">
+      <DependentUpon>EmpleadoWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadoWF.resx">
+      <DependentUpon>EstadoWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalesWF.resx">
+      <DependentUpon>LocalesWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuWF.resx">
+      <DependentUpon>MenuWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoEstadoWF.resx">
+      <DependentUpon>NuevoEstadoWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoRolWF.resx">
+      <DependentUpon>NuevoRolWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UsuarioWF.resx">
+      <DependentUpon>UsuarioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WFRol.resx">
+      <DependentUpon>WFRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPCobro.BusinessLogic\MPCobro.BusinessLogic.csproj">
+      <Project>{de247179-6d6f-4a07-a163-468300f4de15}</Project>
+      <Name>MPCobro.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPCobro.Entities\MPCobro.Entities.csproj">
+      <Project>{2340293F-AC36-458F-B008-2B6642E6B718}</Project>
+      <Name>MPCobro.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CodigosBarras\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
