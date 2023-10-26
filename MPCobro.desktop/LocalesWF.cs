@@ -118,12 +118,12 @@ namespace MPCobro.desktop
                              Id = x.LocalesId
                          }
              ).FirstOrDefault();
-            string codigo = "000000" + (query.Id + 1);
+            string codigo = "0000000000" + (query.Id + 1);
             txtCodigo.Text = codigo;
             Barcode barcode = new Barcode();
             Bitmap imagenTitulo = ConvertirTextoImagen(txtNombre.Text.Trim(), 300, Color.White);
             Image img = barcode.Encode(BarcodeLib.TYPE.CODE128, txtCodigo.Text, Color.White, Color.Black,
-                (int)(pbxCodigo.Width * 0.9), (int)(pbxCodigo.Height * 0.9));
+             (int)(pbxCodigo.Width * 0.9), (int)(pbxCodigo.Height * 0.9));
 
             // Calcula la altura total para el nuevo Bitmap
             int alto_imagen_nuevo = img.Height + imagenTitulo.Height + 30; // 30 es un espacio para el texto
@@ -137,11 +137,19 @@ namespace MPCobro.desktop
                 // Dibuja la imagen de título en la parte superior
                 dibujar.DrawImage(imagenTitulo, new Point(0, 0));
 
-                // Dibuja la imagen del código de barras debajo de la imagen de título
-                dibujar.DrawImage(img, new Point(0, imagenTitulo.Height));
+                // Crea una copia de la imagen del código de barras con un fondo blanco
+                Bitmap imgWithWhiteBackground = new Bitmap(img.Width, img.Height);
+                using (Graphics imgGraphics = Graphics.FromImage(imgWithWhiteBackground))
+                {
+                    imgGraphics.Clear(Color.White); // Establece el fondo en blanco
+                    imgGraphics.DrawImage(img, Point.Empty);
+                }
+
+                // Dibuja la imagen del código de barras con fondo blanco debajo de la imagen de título
+                dibujar.DrawImage(imgWithWhiteBackground, new Point(0, imagenTitulo.Height));
 
                 // Agrega el texto del código generado debajo del código de barras
-                using (Font font = new Font("Arial", 12))
+                using (Font font = new Font("Arial", 14))
                 {
                     using (SolidBrush brush = new SolidBrush(Color.Black))
                     {
@@ -153,7 +161,6 @@ namespace MPCobro.desktop
             // Actualiza el PictureBox
             pbxCodigo.Image = imagenNueva;
             pbxCodigo.Refresh(); // Añade esta línea para forzar una actualización
-
 
         }
 
