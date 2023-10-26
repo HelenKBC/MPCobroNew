@@ -118,7 +118,7 @@ namespace MPCobro.desktop
                              Id = x.LocalesId
                          }
              ).FirstOrDefault();
-            string codigo = "0000000000" + (query.Id + 1);
+            string codigo = "000000" + (query.Id + 1);
             txtCodigo.Text = codigo;
             Barcode barcode = new Barcode();
             Bitmap imagenTitulo = ConvertirTextoImagen(txtNombre.Text.Trim(), 300, Color.White);
