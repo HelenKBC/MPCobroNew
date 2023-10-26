@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MPCobro.desktop
 {
-    public partial class LocalesWF : MaterialSkin.Controls.MaterialForm
+    public partial class LocalesWF : Form
     {
 
         int Id = 0;
@@ -29,7 +29,7 @@ namespace MPCobro.desktop
             UpdateComboCategoria();
             UpdateGrid();
         }
-
+       
         private void UpdateComboCategoria()
         {
             cbxCategoria.DataSource = CategoriaBLL.Instance.SelectAll().ToList();
@@ -194,6 +194,24 @@ namespace MPCobro.desktop
             objGraphics.DrawString(texto, objFont, new SolidBrush(Color.Black), new RectangleF(0, (objBitmap.Height / 2) - (objBitmap.Height - 10), objBitmap.Width, objBitmap.Height), drawFormat);
             objGraphics.Flush();
             return objBitmap;
+        }
+
+        private void LocalesWF_Load(object sender, EventArgs e)
+        {
+           LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(System.Windows.Forms.Button))
+                {
+                    System.Windows.Forms.Button btn = (System.Windows.Forms.Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
     }
 }

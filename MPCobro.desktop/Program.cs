@@ -16,7 +16,7 @@ namespace MPCobro.desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuWF());
+            Application.Run(new FrmMenu());
         }
     }
 }

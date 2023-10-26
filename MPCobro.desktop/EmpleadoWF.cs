@@ -13,7 +13,7 @@ using MPCobro.Entities;
 
 namespace MPCobro.desktop
 {
-    public partial class EmpleadoWF : MaterialSkin.Controls.MaterialForm
+    public partial class EmpleadoWF : Form
     {
         int Id = 0;
         List<Estado> estados;
@@ -172,6 +172,24 @@ namespace MPCobro.desktop
             txtCorreo.Clear();
             btnModificar.Visible = false;
             btnGuardar.Visible = true;
+        }
+
+        private void EmpleadoWF_Load(object sender, EventArgs e)
+        {
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
     }
 }

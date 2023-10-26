@@ -12,14 +12,28 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class NuevoEstadoWF : MaterialSkin.Controls.MaterialForm
+    public partial class NuevoEstadoWF : Form
     {
         int id = 0;
         public NuevoEstadoWF()
         {
             InitializeComponent();
+            LoadThemes();
            
-        }   
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Estado entity = new Estado()

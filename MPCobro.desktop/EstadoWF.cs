@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class EstadoWF : MaterialSkin.Controls.MaterialForm
+    public partial class EstadoWF : Form
     {
         List<Estado> _listadoEstados;
         int Id = 0;
@@ -24,6 +24,20 @@ namespace MPCobro.desktop
         private void EstadoWF_Load(object sender, EventArgs e)
         {
             UpdateGrid();
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
         private void UpdateGrid()
         {

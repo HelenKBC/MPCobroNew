@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class CategoriaWF : MaterialSkin.Controls.MaterialForm
+    public partial class CategoriaWF : Form
     {
         int Id = 0;
         public CategoriaWF()
@@ -123,6 +123,24 @@ namespace MPCobro.desktop
                     btnGuardar.Visible = false;
                     MessageBox.Show("Edite los datos necesarios del formulario",
                       "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void CategoriaWF_Load(object sender, EventArgs e)
+        {
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
         }

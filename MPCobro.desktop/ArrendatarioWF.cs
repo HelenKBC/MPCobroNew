@@ -12,18 +12,31 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class ArrendatarioWF : MaterialSkin.Controls.MaterialForm
+    public partial class ArrendatarioWF : Form
     {
         List<Arrendatario> arrendatarios;
         int Id = 0;
         public ArrendatarioWF()
         {
-            InitializeComponent();
-        }
-
+            InitializeComponent();          
+        }      
         private void ArrendatarioWF_Load(object sender, EventArgs e)
         {
             UpdateGrid();
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
         private void UpdateGrid()
         {
@@ -43,36 +56,7 @@ namespace MPCobro.desktop
             dgvArrendatario.DataSource = query.ToList();
         }
 
-        private void dgvArrendatario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = dgvArrendatario.CurrentRow.Cells["Id"].Value.ToString();
-            txtNombres.Text = dgvArrendatario.CurrentRow.Cells["Nombre"].Value.ToString();
-            txtApellidos.Text = dgvArrendatario.CurrentRow.Cells["Apellido"].Value.ToString();
-            txtTelefono.Text = dgvArrendatario.CurrentRow.Cells["Telefono"].Value.ToString();
-            txtDui.Text = dgvArrendatario.CurrentRow.Cells["Dui"].Value.ToString();
-            txtCorreo.Text = dgvArrendatario.CurrentRow.Cells["CorreoElectronico"].Value.ToString();
-        }
-
-        private void dgvArrendatario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-             if (dgvArrendatario.Rows[e.RowIndex].Cells["Eliminar"].Selected)
-            {
-                int id = (int)dgvArrendatario.Rows[e.RowIndex].Cells["Id"].Value;
-                DialogResult dr = MessageBox.Show("Realmente desea eliminar el registro?",
-                    "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
-                {
-                    if (ArrendatarioBLL.Instance.Delete(id))
-                    {
-                        MessageBox.Show("Se elimino el registro seleccionado?",
-                    "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                UpdateGrid();
-            }
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             Arrendatario entity = new Arrendatario();
             if (txtId.TextLength > 0)
@@ -105,5 +89,34 @@ namespace MPCobro.desktop
             }
             UpdateGrid();
         }
+
+        private void dgvArrendatario_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvArrendatario.Rows[e.RowIndex].Cells["Eliminar"].Selected)
+            {
+                int id = (int)dgvArrendatario.Rows[e.RowIndex].Cells["Id"].Value;
+                DialogResult dr = MessageBox.Show("Realmente desea eliminar el registro?",
+                    "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    if (ArrendatarioBLL.Instance.Delete(id))
+                    {
+                        MessageBox.Show("Se elimino el registro seleccionado?",
+                    "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                UpdateGrid();
+            }
+        }
+
+        private void dgvArrendatario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dgvArrendatario.CurrentRow.Cells["Id"].Value.ToString();
+            txtNombres.Text = dgvArrendatario.CurrentRow.Cells["Nombre"].Value.ToString();
+            txtApellidos.Text = dgvArrendatario.CurrentRow.Cells["Apellido"].Value.ToString();
+            txtTelefono.Text = dgvArrendatario.CurrentRow.Cells["Telefono"].Value.ToString();
+            txtDui.Text = dgvArrendatario.CurrentRow.Cells["Dui"].Value.ToString();
+            txtCorreo.Text = dgvArrendatario.CurrentRow.Cells["CorreoElectronico"].Value.ToString();
+        }
     }
-}  
+}

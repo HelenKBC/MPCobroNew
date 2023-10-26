@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class NuevoRolWF : MaterialSkin.Controls.MaterialForm
+    public partial class NuevoRolWF : Form
     {
         int id = 0;
         public NuevoRolWF()
@@ -51,6 +51,24 @@ namespace MPCobro.desktop
         {
             txtNombre.Text = "";
             this.Close();
+        }
+
+        private void NuevoRolWF_Load(object sender, EventArgs e)
+        {
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
     }
 }

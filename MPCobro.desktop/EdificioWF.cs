@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class EdificioWF : MaterialSkin.Controls.MaterialForm
+    public partial class EdificioWF : Form
     {
         int Id = 0;
         public EdificioWF()
@@ -123,6 +123,24 @@ namespace MPCobro.desktop
             {
                 MessageBox.Show("Llene todos los datos necesarios para el registro...",
                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void EdificioWF_Load(object sender, EventArgs e)
+        {
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
             }
         }
     }

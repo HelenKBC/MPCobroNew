@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MPCobro.desktop
 {
-    public partial class WFRol : MaterialSkin.Controls.MaterialForm
+    public partial class WFRol : Form
     {
         public WFRol()
         {
@@ -36,6 +36,24 @@ namespace MPCobro.desktop
                          }
                          ).ToList();
             dgvRol.DataSource = query.ToList();
+        }
+
+        private void WFRol_Load(object sender, EventArgs e)
+        {
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
     }
 }
