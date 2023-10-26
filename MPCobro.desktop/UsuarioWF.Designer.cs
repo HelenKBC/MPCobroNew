@@ -160,7 +160,7 @@
             this.dgvUsuario.Name = "dgvUsuario";
             this.dgvUsuario.RowHeadersWidth = 51;
             this.dgvUsuario.RowTemplate.Height = 24;
-            this.dgvUsuario.Size = new System.Drawing.Size(705, 311);
+            this.dgvUsuario.Size = new System.Drawing.Size(705, 187);
             this.dgvUsuario.TabIndex = 8;
             this.dgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellContentClick);
             // 
@@ -210,14 +210,14 @@
             this.panel1.Location = new System.Drawing.Point(66, 216);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(773, 440);
+            this.panel1.Size = new System.Drawing.Size(773, 352);
             this.panel1.TabIndex = 11;
             // 
             // UsuarioWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 728);
+            this.ClientSize = new System.Drawing.Size(883, 591);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label3);

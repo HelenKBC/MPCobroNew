@@ -249,7 +249,7 @@
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.RowHeadersWidth = 51;
             this.dgvEmpleado.RowTemplate.Height = 24;
-            this.dgvEmpleado.Size = new System.Drawing.Size(898, 289);
+            this.dgvEmpleado.Size = new System.Drawing.Size(898, 200);
             this.dgvEmpleado.TabIndex = 17;
             this.dgvEmpleado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleado_CellContentClick);
             // 
@@ -297,7 +297,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 695);
+            this.ClientSize = new System.Drawing.Size(932, 586);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.dgvEmpleado);

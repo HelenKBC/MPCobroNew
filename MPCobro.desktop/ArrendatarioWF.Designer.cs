@@ -183,7 +183,7 @@
             this.btnGuardar.BackColor = System.Drawing.SystemColors.Control;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(625, 526);
+            this.btnGuardar.Location = new System.Drawing.Point(629, 504);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(147, 61);
             this.btnGuardar.TabIndex = 21;
@@ -216,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 628);
+            this.ClientSize = new System.Drawing.Size(887, 581);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtDui);
