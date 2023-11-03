@@ -225,5 +225,8 @@
   <ItemGroup>
     <Folder Include="CodigosBarras\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo1 mp.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
