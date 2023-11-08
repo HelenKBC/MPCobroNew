@@ -151,5 +151,10 @@ namespace MPCobro.desktop
         {
             OpenChildForm(new MPCobro.desktop.CobroWF(), sender);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MPCobro.desktop.LoginWF(), sender);
+        }
     }
 }

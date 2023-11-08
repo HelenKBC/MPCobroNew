@@ -200,6 +200,9 @@
     <EmbeddedResource Include="LocalesWF.resx">
       <DependentUpon>LocalesWF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginWF.resx">
+      <DependentUpon>LoginWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevoEstadoWF.resx">
       <DependentUpon>NuevoEstadoWF.cs</DependentUpon>
     </EmbeddedResource>

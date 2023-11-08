@@ -15,6 +15,26 @@ namespace MPCobro.desktop
         public LoginWF()
         {
             InitializeComponent();
+          
+        }
+        
+
+        private void LoginWF_Load(object sender, EventArgs e)
+        {
+            LoadThemes();
+        }
+        private void LoadThemes()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
         }
     }
 }

@@ -123,6 +123,10 @@ namespace MPCobro.desktop
 
         private void LimpiarForm()
         {
+            Id = 0;
+            cbxArrendatario.SelectedValue = 0;
+            cbxLocal.SelectedValue = 0;
+            txtMonto.Clear();
         }
 
         private void AsignacionLocalWF_Load(object sender, EventArgs e)
