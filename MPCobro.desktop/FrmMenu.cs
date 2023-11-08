@@ -141,5 +141,15 @@ namespace MPCobro.desktop
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MPCobro.desktop.AsignacionLocalWF(), sender);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MPCobro.desktop.CobroWF(), sender);
+        }
     }
 }

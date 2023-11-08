@@ -140,6 +140,12 @@
     <Compile Include="LocalesWF.Designer.cs">
       <DependentUpon>LocalesWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginWF.Designer.cs">
+      <DependentUpon>LoginWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevoEstadoWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoriaWF.resx">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CobroWF.resx">
+      <DependentUpon>CobroWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EdificioWF.resx">
       <DependentUpon>EdificioWF.cs</DependentUpon>

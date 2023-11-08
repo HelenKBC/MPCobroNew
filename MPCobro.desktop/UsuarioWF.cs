@@ -162,9 +162,9 @@ namespace MPCobro.desktop
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
+                if (btns.GetType() == typeof(System.Windows.Forms.Button))
                 {
-                    Button btn = (Button)btns;
+                    System.Windows.Forms.Button btn = (System.Windows.Forms.Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
