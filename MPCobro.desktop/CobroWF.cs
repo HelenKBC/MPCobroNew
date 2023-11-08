@@ -84,12 +84,11 @@ namespace MPCobro.desktop
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
-        {// Obtén los valores seleccionados en los controles
+        {
             int empleadoId = (int)cbxEmpleado.SelectedValue;
             int localId = (int)cbxLocal.SelectedValue;
             DateTime fechaCobro = Convert.ToDateTime(dpFechaCobro.Text);
 
-            // Realiza la operación de cobro
             Cobro cobro = new Cobro
             {
                 EmpleadoId = empleadoId,
@@ -157,7 +156,7 @@ namespace MPCobro.desktop
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
-        {// Obtén los valores seleccionados en los controles
+        {
             int empleadoId = (int)cbxEmpleado.SelectedValue;
             int localId = (int)cbxLocal.SelectedValue;
             DateTime fechaCobro = Convert.ToDateTime(dpFechaCobro.Text);
