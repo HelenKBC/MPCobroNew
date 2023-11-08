@@ -23,16 +23,26 @@ namespace MPCobro.desktop
             UpdateComboEmpleado();
             UpdateComboLocales();
             UpdateGrid();
+            dpFechaCobro.Text = DateTime.Now.ToString();
         }
         private void UpdateComboEmpleado()
         {
-            cbxEmpleado.DataSource = EmpleadoBLL.Instance.SelectAll().ToList();
-            cbxEmpleado.DisplayMember = "Nombre";
+            var empleados = EmpleadoBLL.Instance.SelectAll().ToList();
+            var empleadoConNombreCompleto = empleados.Select(e => new
+            {
+                NombreCompleto = $"{e.Nombre} {e.Apellido}",
+                EmpleadoId = e.EmpleadoId
+            }).ToList();
+            cbxEmpleado.DataSource = empleadoConNombreCompleto;
+            cbxEmpleado.DisplayMember = "NombreCompleto";
             cbxEmpleado.ValueMember = "EmpleadoId";
         }
         private void UpdateComboLocales()
         {
-            cbxLocal.DataSource = LocalesBLL.Instance.SelectAll().ToList();
+            // Realiza una consulta para obtener los locales con EstadoId igual a 4
+            var localesConEstado4 = LocalesBLL.Instance.SelectAll().Where(l => l.EstadoId == 4).ToList();
+            // Asigna los resultados al ComboBox
+            cbxLocal.DataSource = localesConEstado4;
             cbxLocal.DisplayMember = "Nombre";
             cbxLocal.ValueMember = "LocalesId";
 
@@ -92,6 +102,11 @@ namespace MPCobro.desktop
                       "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UpdateGrid();
             }
+        }
+
+        private void dgvCobro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

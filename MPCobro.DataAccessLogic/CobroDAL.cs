@@ -31,7 +31,6 @@ namespace MPCobro.DataAccessLogic
                 using (SqlCommand cmd = new SqlCommand("sp_CobroInsert", conn))
                 {
                     conn.Open();
-                    cmd.Parameters.AddWithValue("@CobroId", entity.CobroId);
                     cmd.Parameters.AddWithValue("@EmpleadoId", entity.EmpleadoId);
                     cmd.Parameters.AddWithValue("@LocalId", entity.LocalId);
                     cmd.Parameters.AddWithValue("@FechaCobro", entity.FechaCobro);
