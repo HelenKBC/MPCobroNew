@@ -92,11 +92,23 @@
     <Compile Include="ArrendatarioWF.Designer.cs">
       <DependentUpon>ArrendatarioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsignacionLocalWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignacionLocalWF.Designer.cs">
+      <DependentUpon>AsignacionLocalWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriaWF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CategoriaWF.Designer.cs">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CobroWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CobroWF.Designer.cs">
+      <DependentUpon>CobroWF.cs</DependentUpon>
     </Compile>
     <Compile Include="EdificioWF.cs">
       <SubType>Form</SubType>
@@ -157,6 +169,9 @@
     </Compile>
     <EmbeddedResource Include="ArrendatarioWF.resx">
       <DependentUpon>ArrendatarioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignacionLocalWF.resx">
+      <DependentUpon>AsignacionLocalWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoriaWF.resx">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
