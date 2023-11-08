@@ -23,7 +23,6 @@ namespace MPCobro.desktop
             UpdateComboEmpleado();
             UpdateComboLocales();
             UpdateGrid();
-            cbxEmpleado.Enabled = false;
             dpFechaCobro.Text = DateTime.Now.ToString();
         }
         private void UpdateComboEmpleado()

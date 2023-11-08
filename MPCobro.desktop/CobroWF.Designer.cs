@@ -188,7 +188,7 @@
             // 
             this.btnModificar.BackColor = System.Drawing.SystemColors.Control;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(35, 364);
+            this.btnModificar.Location = new System.Drawing.Point(35, 305);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(437, 41);
