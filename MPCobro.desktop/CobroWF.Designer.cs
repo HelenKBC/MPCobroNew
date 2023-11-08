@@ -195,6 +195,7 @@
             this.btnModificar.TabIndex = 22;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnGuardar
             // 
@@ -223,7 +224,7 @@
             this.Controls.Add(this.cbxLocal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxEmpleado);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CobroWF";
             this.Text = "Cobro";
             this.Load += new System.EventHandler(this.CobroWF_Load);

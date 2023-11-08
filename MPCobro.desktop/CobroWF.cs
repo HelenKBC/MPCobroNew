@@ -60,7 +60,7 @@ namespace MPCobro.desktop
                              Id = x.CobroId,
                              Empleado = e.Nombre,
                              Locales = d.Nombre,
-                             dpFechaCobro = x.FechaCobro
+                             FechaCobro = x.FechaCobro
                          }
                          ).ToList();
             dgvCobro.DataSource = query.ToList();
@@ -122,7 +122,77 @@ namespace MPCobro.desktop
 
         private void dgvCobro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvCobro.Rows[e.RowIndex].Cells["eliminar"].Selected)
+            {
+                int id = (int)dgvCobro.Rows[e.RowIndex].Cells["Id"].Value;
+                DialogResult dr = MessageBox.Show("Realmente desea eliminar el registro?",
+                    "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    if (CobroBLL.Instance.Delete(id))
+                    {
+                        MessageBox.Show("Se elimino exitozamente el registro",
+                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                UpdateGrid();
+            }
+            else if (dgvCobro.Rows[e.RowIndex].Cells["Editar"].Selected)
+            {
+                int id = (int)dgvCobro.Rows[e.RowIndex].Cells["Id"].Value;
+                DialogResult dr = MessageBox.Show("Realmente desea editar el registro?",
+                    "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    Id = id;
+                    dpFechaCobro.Text = dgvCobro.Rows[e.RowIndex].Cells["FechaCobro"].Value.ToString();
+                    cbxEmpleado.Text = dgvCobro.Rows[e.RowIndex].Cells["Empleado"].Value.ToString();
+                    cbxLocal.Text = dgvCobro.Rows[e.RowIndex].Cells["Locales"].Value.ToString();
+                    btnModificar.Visible = true;
+                    btnGuardar.Visible = false;
+                    MessageBox.Show("Edite los datos necesarios del formulario",
+                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {// Obtén los valores seleccionados en los controles
+            int empleadoId = (int)cbxEmpleado.SelectedValue;
+            int localId = (int)cbxLocal.SelectedValue;
+            DateTime fechaCobro = Convert.ToDateTime(dpFechaCobro.Text);
+
+            // Realiza la operación de cobro
+            Cobro cobro = new Cobro
+            {
+                CobroId = Id,
+                EmpleadoId = empleadoId,
+                LocalId = localId,
+                FechaCobro = fechaCobro
+            };
+
+            // Actualiza la fecha del último pago en las asignaciones locales relacionadas con el local del cobro
+            var asignacionesLocales = AsignacionLocalBLL.Instance.SelectAll().Where(x => x.LocalId == localId);
+
+            foreach (var asignacion in asignacionesLocales)
+            {
+                asignacion.FechaUltimoPago = fechaCobro;
+                AsignacionLocalBLL.Instance.Update(asignacion);
+            }
+            if (cobro != null)
+            {
+                CobroBLL.Instance.Update(cobro);
+                MessageBox.Show("Datos modificados exitosamente...",
+                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateGrid();
+                btnGuardar.Visible = true;
+                btnModificar.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Llene todos los datos necesarios para el registro...",
+                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
