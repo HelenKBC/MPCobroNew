@@ -107,7 +107,7 @@ namespace MPCobro.DataAccessLogic
                                 _entity.ArrendatarioId = dr.GetInt32(2);
                                 _entity.FechaInicio = dr.GetDateTime(3);
                                 _entity.FechaUltimoPago = dr.GetDateTime(4);
-                                _entity.Monto = dr.GetInt32(5); //GetMonto
+                                _entity.Monto = dr.GetDecimal(5); //GetMonto
                                 result.Add(_entity);
                             }
                         }
