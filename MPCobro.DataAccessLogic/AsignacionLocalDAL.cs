@@ -66,6 +66,23 @@ namespace MPCobro.DataAccessLogic
             return result;
         }
 
+        public bool UpdateFechaUltimoPago(AsignacionLocal entity)  // *** UPDATEFechaUltimoPago
+        {
+            bool result = false;
+            using (SqlConnection conn = new SqlConnection(_cadena))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_AsigFechaUltimoPagoUpdate", conn))
+                {
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@AsignacionLocalId", entity.AsignacionLocalId);
+                    cmd.Parameters.AddWithValue("@FechaUltimoPago", entity.FechaUltimoPago);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    result = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            return result;
+        }
+
         public bool Delete(int id) // DELETE *** 
         {
             bool result = false;

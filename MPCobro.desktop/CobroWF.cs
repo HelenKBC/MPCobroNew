@@ -23,6 +23,7 @@ namespace MPCobro.desktop
             UpdateComboEmpleado();
             UpdateComboLocales();
             UpdateGrid();
+            cbxEmpleado.Enabled = false;
             dpFechaCobro.Text = DateTime.Now.ToString();
         }
         private void UpdateComboEmpleado()
@@ -83,13 +84,28 @@ namespace MPCobro.desktop
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
-        {
+        {// Obtén los valores seleccionados en los controles
+            int empleadoId = (int)cbxEmpleado.SelectedValue;
+            int localId = (int)cbxLocal.SelectedValue;
+            DateTime fechaCobro = Convert.ToDateTime(dpFechaCobro.Text);
+
+            // Realiza la operación de cobro
             Cobro cobro = new Cobro
             {
-                EmpleadoId = (int)cbxEmpleado.SelectedValue,
-                LocalId = (int)cbxLocal.SelectedValue,
-                FechaCobro = Convert.ToDateTime(dpFechaCobro.Text)
+                EmpleadoId = empleadoId,
+                LocalId = localId,
+                FechaCobro = fechaCobro
             };
+
+            // Actualiza la fecha del último pago en las asignaciones locales relacionadas con el local del cobro
+            var asignacionesLocales = AsignacionLocalBLL.Instance.SelectAll().Where(x => x.LocalId == localId);
+
+            foreach (var asignacion in asignacionesLocales)
+            {
+                asignacion.FechaUltimoPago = fechaCobro;
+                AsignacionLocalBLL.Instance.Update(asignacion);
+            }
+
             if (cobro == null)
             {
                 MessageBox.Show("Llene los datos por favor...",

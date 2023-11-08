@@ -69,6 +69,20 @@ namespace MPCobro.BusinessLogic
 
             return result;
         }
+
+        public bool UpdateAsigUltimaFecha(AsignacionLocal entity)
+        {
+            bool result = false;
+            try
+            {
+                result = AsignacionLocalDAL.Instance.UpdateFechaUltimoPago(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
         public bool Delete(int id)
         {
             bool result = false;
