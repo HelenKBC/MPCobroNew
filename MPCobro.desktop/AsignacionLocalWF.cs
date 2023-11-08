@@ -14,6 +14,7 @@ namespace MPCobro.desktop
 {
     public partial class AsignacionLocalWF : Form
     {
+        int localIdAnterior = 0;
         int Id = 0;
         List<Locales> local;
         List<Arrendatario> arrendatario;
@@ -42,10 +43,15 @@ namespace MPCobro.desktop
 
         private void UpdateCombolocal()
         {
-            cbxLocal.DataSource = LocalesBLL.Instance.SelectAll().ToList();
+            // Realiza una consulta para obtener los locales con EstadoId igual a 4
+            var localesConEstado4 = LocalesBLL.Instance.SelectAll().Where(l => l.EstadoId == 1).ToList();
+            // Asigna los resultados al ComboBox
+            cbxLocal.DataSource = localesConEstado4;
             cbxLocal.DisplayMember = "Nombre";
             cbxLocal.ValueMember = "LocalesId";
+
         }
+
 
         private void UpdateGrid()
         {
@@ -57,6 +63,7 @@ namespace MPCobro.desktop
                          select new
                          {
                              Id = x.AsignacionLocalId,
+                             IdLocal = x.LocalId,
                              Locales = r.Nombre,
                              Arrendatario = e.Nombre + " " + e.Apellido,
                              FechaInicio = x.FechaInicio,
@@ -70,54 +77,78 @@ namespace MPCobro.desktop
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            AsignacionLocal asignacion = new AsignacionLocal
+            Locales locales = new Locales
             {
-                AsignacionLocalId = Id,
-                LocalId = (int)cbxLocal.SelectedValue,
-                ArrendatarioId = (int)cbxArrendatario.SelectedValue,
-                FechaInicio = Convert.ToDateTime(dpFechaInicio.Text),
-                FechaUltimoPago = Convert.ToDateTime(dpFechaUltima.Text),
-                Monto = decimal.Parse(txtMonto.Text)
+                LocalesId = (int)cbxLocal.SelectedValue,
+                EstadoId = 4
             };
-            if (asignacion != null)
-            {
-                AsignacionLocalBLL.Instance.Update(asignacion);
-                MessageBox.Show("Datos modificados exitosamente...",
-                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UpdateGrid();
-                LimpiarForm();
-                btnGuardar.Visible = true;
-                btnModificar.Visible = false;
-            }
+            if (locales == null)
+            { }
             else
             {
-                MessageBox.Show("Llene todos los datos necesarios para el registro...",
-                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LocalesBLL.Instance.UpdateEstado(locales);
+                AsignacionLocal asignacion = new AsignacionLocal
+                {
+                    AsignacionLocalId = Id,
+                    LocalId = (int)cbxLocal.SelectedValue,
+                    ArrendatarioId = (int)cbxArrendatario.SelectedValue,
+                    FechaInicio = Convert.ToDateTime(dpFechaInicio.Text),
+                    FechaUltimoPago = Convert.ToDateTime(dpFechaUltima.Text),
+                    Monto = decimal.Parse(txtMonto.Text)
+                };
+                if (asignacion != null)
+                {
+                    AsignacionLocalBLL.Instance.Update(asignacion);
+                    MessageBox.Show("Datos modificados exitosamente...",
+                          "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateGrid();
+                    LimpiarForm();
+                    UpdateCombolocal();
+                    btnGuardar.Visible = true;
+                    btnModificar.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Llene todos los datos necesarios para el registro...",
+                         "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            AsignacionLocal asignacion = new AsignacionLocal
+            Locales locales = new Locales
             {
-                LocalId = (int)cbxLocal.SelectedValue,
-                ArrendatarioId = (int)cbxArrendatario.SelectedValue,
-                FechaInicio = Convert.ToDateTime(dpFechaInicio.Text),
-                FechaUltimoPago = Convert.ToDateTime(dpFechaUltima.Text),
-                Monto = decimal.Parse(txtMonto.Text)
+                LocalesId = (int)cbxLocal.SelectedValue,
+                EstadoId = 4
             };
-            if (asignacion == null)
-            {
-                MessageBox.Show("Llene los datos por favor...",
-                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            if (locales == null)
+            { }
             else
             {
-                AsignacionLocalBLL.Instance.Insert(asignacion);
-                MessageBox.Show("Datos guardados exitosamente...",
-                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UpdateGrid();
-                LimpiarForm();
+                LocalesBLL.Instance.UpdateEstado(locales);
+
+                AsignacionLocal asignacion = new AsignacionLocal
+                {
+                    LocalId = (int)cbxLocal.SelectedValue,
+                    ArrendatarioId = (int)cbxArrendatario.SelectedValue,
+                    FechaInicio = Convert.ToDateTime(dpFechaInicio.Text),
+                    FechaUltimoPago = Convert.ToDateTime(dpFechaUltima.Text),
+                    Monto = decimal.Parse(txtMonto.Text)
+                };
+                if (asignacion == null)
+                {
+                    MessageBox.Show("Llene los datos por favor...",
+                          "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    AsignacionLocalBLL.Instance.Insert(asignacion);
+                    MessageBox.Show("Datos guardados exitosamente...",
+                          "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateGrid();
+                    UpdateCombolocal();
+                    LimpiarForm();
+                }
             }
         }
 
@@ -152,6 +183,8 @@ namespace MPCobro.desktop
             if (dgvAsignacionLocal.Rows[e.RowIndex].Cells["eliminar"].Selected)
             {
                 int id = (int)dgvAsignacionLocal.Rows[e.RowIndex].Cells["Id"].Value;
+                localIdAnterior = (int)dgvAsignacionLocal.Rows[e.RowIndex].Cells["IdLocal"].Value;
+
                 DialogResult dr = MessageBox.Show("Realmente desea eliminar el registro?",
                     "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
@@ -161,6 +194,17 @@ namespace MPCobro.desktop
                         MessageBox.Show("Se elimino exitozamente el registro",
                         "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                }
+                Locales locales = new Locales
+                {
+                    LocalesId = localIdAnterior,
+                    EstadoId = 1
+                };
+                if (locales != null)
+                {
+                    LocalesBLL.Instance.UpdateEstado(locales);
+                    UpdateCombolocal();
+                    cbxLocal.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["Locales"].Value.ToString();
                 }
                 UpdateGrid();
             }
@@ -172,16 +216,27 @@ namespace MPCobro.desktop
                 if (dr == DialogResult.Yes)
                 {
                     Id = id;
+                    localIdAnterior = (int)dgvAsignacionLocal.Rows[e.RowIndex].Cells["IdLocal"].Value;
                     cbxArrendatario.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["Arrendatario"].Value.ToString();
-                    cbxLocal.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["Locales"].Value.ToString();
                     dpFechaInicio.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["FechaInicio"].Value.ToString();
                     dpFechaUltima.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["FechaUltimoPago"].Value.ToString();
                     txtMonto.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["Monto"].Value.ToString();
                     btnModificar.Visible = true;
                     btnGuardar.Visible = false;
                     cbxArrendatario.Enabled = false;
-                    MessageBox.Show("Edite los datos necesarios del formulario",
-                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Locales locales = new Locales
+                    {
+                        LocalesId = localIdAnterior,
+                        EstadoId = 1
+                    };
+                    if (locales == null)
+                    { }
+                    else
+                    {
+                        LocalesBLL.Instance.UpdateEstado(locales);
+                        UpdateCombolocal();
+                        cbxLocal.Text = dgvAsignacionLocal.Rows[e.RowIndex].Cells["Locales"].Value.ToString();
+                    }
                 }
             }
         }

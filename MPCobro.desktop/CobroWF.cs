@@ -34,5 +34,10 @@ namespace MPCobro.desktop
                 }
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

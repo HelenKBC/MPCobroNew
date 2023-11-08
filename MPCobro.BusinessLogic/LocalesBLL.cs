@@ -69,6 +69,21 @@ namespace MPCobro.BusinessLogic
 
             return result;
         }
+        public bool UpdateEstado(Locales entity)
+        {
+            bool result = false;
+
+            try
+            {
+                result = LocalesDAL.Instance.UpdateLocales(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
     }
 }
 

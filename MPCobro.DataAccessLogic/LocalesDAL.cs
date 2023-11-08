@@ -129,6 +129,22 @@ namespace MPCobro.DataAccessLogic
             return result;
         }
 
+        public bool UpdateLocales(Locales entity) //UpdateEstados
+        {
+            bool result = false;
+            using (SqlConnection conn = new SqlConnection(_cadena))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_LocalesUpdateStates", conn))
+                {
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@LocalesId", entity.LocalesId);
+                    cmd.Parameters.AddWithValue("@EstadoId", entity.EstadoId);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    result = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            return result;
+        }
         public bool Delete(int id)  //Delete
         {
             bool result = false;
