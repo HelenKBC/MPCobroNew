@@ -64,10 +64,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="ScriptBD\BDMegaPlazaCobros.sql" />
-    <Content Include="ScriptBD\SPAlfredo.sql" />
+    <Content Include="ScriptBD\BDMegaPlazaCobros-ConDatos.sql" />
+    <Content Include="ScriptBD\MegaPlazaCobro.sql" />
     <Content Include="ScriptBD\SPOscar.sql" />
-    <Content Include="ScriptBD\SPHelen-ArqueoEmpleadoUsuario.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
