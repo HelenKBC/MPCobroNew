@@ -37,5 +37,50 @@ namespace MPCobro.BusinessLogic
 
             return result;
         }
+        public bool Insert(Cobro entity)
+        {
+            bool result = false;
+
+            try
+            {
+                result = CobroDAL.Instance.Insert(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
+
+        public bool Update(Cobro entity)
+        {
+            bool result = false;
+
+            try
+            {
+                result = CobroDAL.Instance.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
+        public bool Delete(int id)
+        {
+            bool result = false;
+            try
+            {
+                result = CobroDAL.Instance.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
     }
 }

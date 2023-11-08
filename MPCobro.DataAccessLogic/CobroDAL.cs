@@ -48,7 +48,7 @@ namespace MPCobro.DataAccessLogic
 
             using (SqlConnection conn = new SqlConnection(_cadena))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_CobroSelectAll", conn))
+                using (SqlCommand cmd = new SqlCommand("sp_CobroSelecAll", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 

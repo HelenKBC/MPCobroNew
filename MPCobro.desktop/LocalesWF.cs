@@ -39,7 +39,7 @@ namespace MPCobro.desktop
 
         private void UpdateComboEdificio()
         {
-            cbxEdificio.DataSource = EdificioBLL.Instance.SelectAll().ToList();
+            cbxEdificio.DataSource = EmpleadoBLL.Instance.SelectAll().ToList();
             cbxEdificio.DisplayMember = "Nombre";
             cbxEdificio.ValueMember = "EdificioId";
         }
