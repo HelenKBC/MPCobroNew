@@ -66,7 +66,7 @@ namespace MPCobro.desktop
                     "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
                 {
-                    if (EmpleadoBLL.Instance.Delete(id))
+                    if (UsuarioBLL.Instance.Delete(id))
                     {
                         MessageBox.Show("Se elimino exitozamente el registro",
                         "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
