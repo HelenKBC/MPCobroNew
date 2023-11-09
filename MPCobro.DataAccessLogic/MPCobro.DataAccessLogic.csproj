@@ -62,10 +62,8 @@
       <Name>MPCobro.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="ScriptBD\MegaPlazaCobro.sql" />
-    <Content Include="ScriptBD\SPOscar.sql" />
+    <Content Include="ScriptBD\MegaPlazaCobroBD.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -39,8 +39,8 @@ namespace MPCobro.desktop
         }
         private void UpdateComboLocales()
         {
-            // Realiza una consulta para obtener los locales con EstadoId igual a 4
-            var localesConEstado4 = LocalesBLL.Instance.SelectAll().Where(l => l.EstadoId == 4).ToList();
+            // Realiza una consulta para obtener los locales con EstadoId igual a 2
+            var localesConEstado4 = LocalesBLL.Instance.SelectAll().Where(l => l.EstadoId == 2).ToList();
             // Asigna los resultados al ComboBox
             cbxLocal.DataSource = localesConEstado4;
             cbxLocal.DisplayMember = "Nombre";
