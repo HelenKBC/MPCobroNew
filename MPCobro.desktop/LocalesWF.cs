@@ -122,7 +122,7 @@ namespace MPCobro.desktop
             txtCodigo.Text = codigo;
             Barcode barcode = new Barcode();
             Bitmap imagenTitulo = ConvertirTextoImagen(txtNombre.Text.Trim(), 300, Color.White);
-            Image img = barcode.Encode(BarcodeLib.TYPE.CODE128, txtCodigo.Text, Color.White, Color.Black,
+            Image img = barcode.Encode(BarcodeLib.TYPE.CODE39, txtCodigo.Text, Color.White, Color.Black,
              (int)(pbxCodigo.Width * 0.9), (int)(pbxCodigo.Height * 0.9));
 
             // Calcula la altura total para el nuevo Bitmap
