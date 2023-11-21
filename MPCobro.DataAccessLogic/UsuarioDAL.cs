@@ -136,5 +136,36 @@ namespace MPCobro.DataAccessLogic
             }
             return result;
         }
+        public Usuario Login(string nombreUsuario, string clave)
+        {
+            Usuario usuario = null;
+
+            using (SqlConnection conn = new SqlConnection(_cadena))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_Login", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NombreUser", nombreUsuario);
+                    cmd.Parameters.AddWithValue("@Clave", clave);
+
+                    conn.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.SingleResult))
+                    {
+                        if (dr != null && dr.Read())
+                        {
+                            usuario = new Usuario()
+                            {
+                                UsuarioId = dr.GetInt32(0),
+                                EmpleadoId = dr.GetInt32(1),
+                                NombreUser = dr.GetString(2)
+                                // Puedes incluir más información del usuario si es necesario
+                            };
+                        }
+                    }
+                }
+            }
+
+            return usuario;
+        }
     }
 }

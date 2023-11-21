@@ -102,5 +102,20 @@ namespace MPCobro.BusinessLogic
 
             return result;
         }
+        public Usuario Login(string nombreUsuario, string clave)
+        {
+            Usuario result = null;
+
+            try
+            {
+                result = UsuarioDAL.Instance.Login(nombreUsuario, clave);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return result;
+        }
     }
 }

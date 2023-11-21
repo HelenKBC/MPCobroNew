@@ -41,27 +41,46 @@ namespace MPCobro.desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-           /* FrmMenu frm = new FrmMenu();
+            string nombreUsuario = txtUsuario.Text;
+            string clave = txtPassword.Text;
+
+            // Validar que se hayan ingresado nombre de usuario y contraseña
+            if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(clave))
+            {
+                MessageBox.Show("Por favor, ingrese nombre de usuario y contraseña.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // Intentar realizar el inicio de sesión
+                Usuario usuario = UsuarioBLL.Instance.Login(nombreUsuario, clave);
+
+                if (usuario != null)
+                {
+                    // Inicio de sesión exitoso
+                    MessageBox.Show($"¡Bienvenido, {usuario.NombreUser}!", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    // Puedes cerrar este formulario y mostrar el formulario principal o realizar otras acciones necesarias.
+                    
+                    using (FrmMenu menuForm = new FrmMenu())
+                    {
+                        menuForm.ShowDialog();
+                    }
+                    this.Close();
+                }
+                else
+                {
+                    // Las credenciales son incorrectas
+                    MessageBox.Show("Nombre de usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            FrmMenu frm = new FrmMenu();
             frm.Show();
-           */
-            Usuario usuario = new Usuario
-           
-            {
-                NombreUser = txtUsuario.Text,
-                Clave = txtPassword.Text,
-            };
-            if (usuario == null)
-            {
-                MessageBox.Show("Llene los datos por favor...",
-                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                UsuarioBLL.Instance.Insert(usuario);
-                MessageBox.Show("Datos guardados exitosamente...",
-                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarForm();
-            }
         }
         private void LimpiarForm()
         {
