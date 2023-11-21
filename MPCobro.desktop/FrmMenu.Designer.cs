@@ -40,7 +40,6 @@
             this.btnArrendatario = new System.Windows.Forms.Button();
             this.btnArrendatrio = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
@@ -65,7 +64,6 @@
             this.panelMenu.Controls.Add(this.btnArrendatario);
             this.panelMenu.Controls.Add(this.btnArrendatrio);
             this.panelMenu.Controls.Add(this.btnUsuario);
-            this.panelMenu.Controls.Add(this.button3);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -82,7 +80,7 @@
             this.button2.ForeColor = System.Drawing.Color.Gainsboro;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 760);
+            this.button2.Location = new System.Drawing.Point(0, 692);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(220, 68);
@@ -102,7 +100,7 @@
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 692);
+            this.button1.Location = new System.Drawing.Point(0, 624);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(220, 68);
@@ -122,7 +120,7 @@
             this.btnRoles.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnRoles.Image = ((System.Drawing.Image)(resources.GetObject("btnRoles.Image")));
             this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRoles.Location = new System.Drawing.Point(0, 624);
+            this.btnRoles.Location = new System.Drawing.Point(0, 556);
             this.btnRoles.Name = "btnRoles";
             this.btnRoles.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnRoles.Size = new System.Drawing.Size(220, 68);
@@ -142,7 +140,7 @@
             this.btnEstados.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEstados.Image = ((System.Drawing.Image)(resources.GetObject("btnEstados.Image")));
             this.btnEstados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstados.Location = new System.Drawing.Point(0, 556);
+            this.btnEstados.Location = new System.Drawing.Point(0, 488);
             this.btnEstados.Name = "btnEstados";
             this.btnEstados.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnEstados.Size = new System.Drawing.Size(220, 68);
@@ -162,7 +160,7 @@
             this.btnCategorias.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCategorias.Image = ((System.Drawing.Image)(resources.GetObject("btnCategorias.Image")));
             this.btnCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategorias.Location = new System.Drawing.Point(0, 488);
+            this.btnCategorias.Location = new System.Drawing.Point(0, 420);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnCategorias.Size = new System.Drawing.Size(220, 68);
@@ -182,7 +180,7 @@
             this.btnLocales.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnLocales.Image = ((System.Drawing.Image)(resources.GetObject("btnLocales.Image")));
             this.btnLocales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLocales.Location = new System.Drawing.Point(0, 420);
+            this.btnLocales.Location = new System.Drawing.Point(0, 352);
             this.btnLocales.Name = "btnLocales";
             this.btnLocales.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnLocales.Size = new System.Drawing.Size(220, 68);
@@ -202,7 +200,7 @@
             this.btnEdificios.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnEdificios.Image = ((System.Drawing.Image)(resources.GetObject("btnEdificios.Image")));
             this.btnEdificios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdificios.Location = new System.Drawing.Point(0, 352);
+            this.btnEdificios.Location = new System.Drawing.Point(0, 284);
             this.btnEdificios.Name = "btnEdificios";
             this.btnEdificios.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnEdificios.Size = new System.Drawing.Size(220, 68);
@@ -222,7 +220,7 @@
             this.btnArrendatario.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnArrendatario.Image = ((System.Drawing.Image)(resources.GetObject("btnArrendatario.Image")));
             this.btnArrendatario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArrendatario.Location = new System.Drawing.Point(0, 284);
+            this.btnArrendatario.Location = new System.Drawing.Point(0, 216);
             this.btnArrendatario.Name = "btnArrendatario";
             this.btnArrendatario.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnArrendatario.Size = new System.Drawing.Size(220, 68);
@@ -242,7 +240,7 @@
             this.btnArrendatrio.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnArrendatrio.Image = ((System.Drawing.Image)(resources.GetObject("btnArrendatrio.Image")));
             this.btnArrendatrio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArrendatrio.Location = new System.Drawing.Point(0, 216);
+            this.btnArrendatrio.Location = new System.Drawing.Point(0, 148);
             this.btnArrendatrio.Name = "btnArrendatrio";
             this.btnArrendatrio.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnArrendatrio.Size = new System.Drawing.Size(220, 68);
@@ -262,7 +260,7 @@
             this.btnUsuario.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(0, 148);
+            this.btnUsuario.Location = new System.Drawing.Point(0, 80);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnUsuario.Size = new System.Drawing.Size(220, 68);
@@ -272,26 +270,6 @@
             this.btnUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsuario.UseVisualStyleBackColor = true;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 80);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(220, 68);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Login";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panelLogo
             // 
@@ -400,6 +378,5 @@
         private System.Windows.Forms.Button btnCloseChildForm;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
     }
 }

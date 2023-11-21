@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MPCobro.BusinessLogic;
+using MPCobro.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +41,32 @@ namespace MPCobro.desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
+           /* FrmMenu frm = new FrmMenu();
+            frm.Show();
+           */
+            Usuario usuario = new Usuario
+           
+            {
+                NombreUser = txtUsuario.Text,
+                Clave = txtPassword.Text,
+            };
+            if (usuario == null)
+            {
+                MessageBox.Show("Llene los datos por favor...",
+                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                UsuarioBLL.Instance.Insert(usuario);
+                MessageBox.Show("Datos guardados exitosamente...",
+                      "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarForm();
+            }
+        }
+        private void LimpiarForm()
+        {
+            txtUsuario.Clear();
+            txtPassword.Clear();
         }
     }
 }
