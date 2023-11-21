@@ -27,6 +27,7 @@ namespace MPCobro.desktop
             UpdateComboEstado();
             UpdateComboEdificio();
             UpdateComboCategoria();
+            btnGuardar.Visible = false;
             UpdateGrid();
         }
        
@@ -48,10 +49,6 @@ namespace MPCobro.desktop
             cbxEstado.DataSource = EstadoBLL.Instance.SelectAll().ToList();
             cbxEstado.DisplayMember = "Nombre";
             cbxEstado.ValueMember = "EstadoId";
-        }
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -118,8 +115,18 @@ namespace MPCobro.desktop
                              Id = x.LocalesId
                          }
              ).FirstOrDefault();
-            string codigo = "000000" + (query.Id + 1);
-            txtCodigo.Text = codigo;
+            if(query != null)
+            {
+                string codigo = "000000" + (query.Id + 1);
+                txtCodigo.Text = codigo;
+            }
+            else
+            {
+                int id = 0;
+                string codigo = "000000" + (id + 1);
+                txtCodigo.Text = codigo;
+
+            }
             Barcode barcode = new Barcode();
             Bitmap imagenTitulo = ConvertirTextoImagen(txtNombre.Text.Trim(), 300, Color.White);
             Image img = barcode.Encode(BarcodeLib.TYPE.CODE39, txtCodigo.Text, Color.White, Color.Black,
@@ -156,6 +163,7 @@ namespace MPCobro.desktop
                         dibujar.DrawString(txtCodigo.Text, font, brush, new PointF(10, imagenTitulo.Height + img.Height + 10)); // Ajusta la posición según sea necesario
                     }
                 }
+                btnGuardar.Visible = true;
             }
 
             // Actualiza el PictureBox
